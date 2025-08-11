@@ -387,13 +387,15 @@ where
     Ok((classes, onehot))
 }
 
+
 /// Conditionally split the feature vector `w` into parameter vector and
 /// intercept parameter.
 /// Dimensions of `w` are either (f) or (f, n_classes)
+
 fn convert_params<F: Float, D: Dimension + RemoveAxis>(
     n_features: usize,
-    w: &Array<F, D>,
-) -> (ArrayView<F, D>, CowArray<F, D::Smaller>) {
+    w: &'_ Array<F, D>,
+) -> (ArrayView<'_, F, D>, CowArray<'_, F, D::Smaller>) {
     let nrows = w.shape()[0];
     if n_features == nrows {
         (

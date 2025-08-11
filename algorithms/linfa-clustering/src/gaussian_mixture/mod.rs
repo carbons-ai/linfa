@@ -6,6 +6,7 @@ pub use algorithm::*;
 pub use errors::*;
 pub use hyperparams::*;
 
+#[allow(mismatched_lifetime_syntaxes)]
 #[cfg(test)]
 mod tests {
 
@@ -14,12 +15,11 @@ mod tests {
     
     use ndarray::array;
 
-    #[allow(unused_variables)]
+    
     #[test]
     fn test_gmm() {
 
-/**
- * 
+/* 
 fn estimate_gaussian_covariances_diag(
     resp: &Array2<f64>,
     x: &Array2<f64>,
@@ -35,18 +35,18 @@ fn estimate_gaussian_covariances_diag(
     // return avg_X2 - avg_means2 + reg_covar
     &avg_x2 - &avg_means2 + reg_covar
 }
- * 
- */
-
-        let ndata = 6;
-        let nfeatures = 2;
-        let nclusters = 2;
+*/
+        
+        let _ndata = 6;
+        let _nfeatures = 2;
+        let _nclusters = 2;
 
         let nk = 2.0;
         let x = array![[1.0, 2.0], [1.0, 4.0], [1.0, 0.0], [10.0, 2.0], [10.0, 4.0], [10.0, 0.0]];
-        let resp = array![[0.1, 0.9], [0.2, 0.8], [0.3, 0.7], [0.4, 0.6], [0.5, 0.5], [0.6, 0.4]];
+        let _resp = array![[0.1, 0.9], [0.2, 0.8], [0.3, 0.7], [0.4, 0.6], [0.5, 0.5], [0.6, 0.4]];
         let squared = x.mapv(|x| x * x) / nk;
 
         print!("{:?}", squared);
     }
+
 }
