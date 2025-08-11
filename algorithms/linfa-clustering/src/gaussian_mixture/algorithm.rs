@@ -260,6 +260,25 @@ impl<F: Float> GaussianMixtureModel<F> {
         covariances
     }
 
+    #[allow(dead_code)]
+    #[allow(unused_variables)]
+    #[allow(unused_mut)]
+    fn estimate_gaussian_covariances_diag<D: Data<Elem = F>>(
+        observations: &ArrayBase<D, Ix2>,
+        resp: &Array2<F>,
+        nk: &Array1<F>,
+        means: &Array2<F>,
+        reg_covar: F,
+    ) -> Array2<F> {
+        let n_clusters = means.nrows();
+        let n_features = means.ncols();
+        let mut covariances = Array::zeros((n_clusters, n_features));
+        for k in 0..n_clusters {
+            let x2 = &observations.mapv(|x| x * x);
+        }
+        covariances
+    }
+
     fn compute_precisions_cholesky_full<D: Data<Elem = F>>(
         covariances: &ArrayBase<D, Ix3>,
     ) -> Result<Array3<F>, GmmError> {

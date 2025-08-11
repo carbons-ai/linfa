@@ -8,8 +8,6 @@ use ndarray_npy::write_npy;
 use ndarray_rand::rand::SeedableRng;
 use rand_xoshiro::Xoshiro256Plus;
 
-use linfa_nn::distance::LInfDist;
-
 // A GMM task: build a synthetic dataset, fit the algorithm on it
 // and save both training data and predictions to disk.
 fn main() {
@@ -43,3 +41,4 @@ fn main() {
     println!("GMM means = {:?}", gmm.means());
     println!("GMM covariances = {:?}", gmm.covariances());
 }
+
